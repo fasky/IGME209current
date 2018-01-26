@@ -1,5 +1,5 @@
 #pragma once
 
-void showGallows(int);
+void showGallows(int guessLimit);
 
-void showSolved(char, char);
+void showSolved(char word[], char guesses[]);
