@@ -1,0 +1,26 @@
+How many random numbers would you like to generate?: 20
+
+#1:38
+#2:7719
+#3:21238
+#4:2437
+#5:8855
+#6:11797
+#7:8365
+#8:32285
+#9:10450
+#10:30612
+#11:5853
+#12:28100
+#13:1142
+#14:281
+#15:20537
+#16:15921
+#17:8945
+#18:26285
+#19:2997
+#20:14680
+
+
+Please enter a string: dog                             //error here - *_Str was nullptr, or access violation
+Press any key to continue . . .
