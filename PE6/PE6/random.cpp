@@ -18,7 +18,7 @@ void generateRandom(int numberOfRandoms) {
 char* reverseString(char* inputString)
 {
 	char newString[256] = "";
-	int len = strlen(inputString); //access violation
+	int len = strlen(inputString);
 	for (int i = 0; i < len; i++)
 	{
 		char c = inputString[i];
