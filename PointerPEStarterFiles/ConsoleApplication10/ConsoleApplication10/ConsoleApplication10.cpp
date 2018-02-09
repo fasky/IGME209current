@@ -54,8 +54,8 @@ int main()
 	//set values
 	boss->xPos = 100;
 	boss->yPos = 200;
-	//boss->damage = 30; //if using MovableObject, cant set damage or name since they don't exist in MovableObject
-	//pOne->name = "Catman"; Can't set name of player, MovableObject doesn't have variable 
+	//boss->damage = 30; //if using MovableObject, can't set damage or name since they don't exist in MovableObject
+	//pOne->name = "Catman"; Can't set name of player anymore, MovableObject doesn't have variable 
 	pOne->yPos = 300;
 	fakeMonster->damage = 10; 	//but you can set the fakeMonster's damage. (Monster*)pOne makes it so fakemonster points to pOne values and also has damage variable, but pOne does not have a damage variable
 	fakeMonster->xPos = 400;
