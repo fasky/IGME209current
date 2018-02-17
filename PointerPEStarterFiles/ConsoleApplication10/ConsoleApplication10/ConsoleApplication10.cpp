@@ -1,5 +1,5 @@
 // ConsoleApplication10.cpp : Defines the entry point for the console application.
-//
+// Kyle Fasanella / Section 1 / PE7 Pointer
 
 #include "stdafx.h"
 #include <iostream>
