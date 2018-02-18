@@ -8,6 +8,6 @@ int getLengthArray(int[]);
 
 int getLengthPointer(int*);
 
-int createStackArray();
+int* createStackArray();
 
-int createHeapArray(int);
+int* createHeapArray(int);
