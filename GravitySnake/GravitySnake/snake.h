@@ -3,7 +3,7 @@
 
 void update();
 
-void display();
+void display(b2Vec2 pos1, b2Vec2 pos2);
 
 void applyForces(b2Body& snake, char strInput);
 
