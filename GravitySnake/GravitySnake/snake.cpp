@@ -1,6 +1,7 @@
 //snake functions from header
 #include "stdafx.h"
 
+/////////Part 1
 void update() {
 	//nothing here
 }
@@ -33,4 +34,34 @@ void applyForces(b2Body& snake, char strInput) {
 //move the target
 void moveTarget(float& xPos, float& yPos) {
 	//nothing here
+}
+
+///////Part 2
+void ProcessInput() {
+
+}
+
+forcFunc applyForceUp;
+
+forcFunc applyForceDown;
+
+forcFunc applyForceLeft;
+
+forcFunc applyForceRight;
+
+void stopMoving(b2Body& player) {
+	b2Vec2 newVel(0.0f, 0.0f);
+	player.SetLinearVelocity(newVel);
+}
+
+void reverseGravity(b2World& world) {
+
+}
+
+void setupTargets(int cnt) {
+
+}
+
+bool selectNextTarget() {
+
 }
