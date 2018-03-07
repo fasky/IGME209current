@@ -15,16 +15,16 @@ void display(b2Vec2 targetPos, b2Vec2 position) {
 void applyForces(b2Body& snake, char strInput) {
 	switch (strInput) {
 		case 'w':
-			snake.ApplyForceToCenter(b2Vec2(0,9.5f),true);
+			snake.ApplyForceToCenter(b2Vec2(0,-8.0f),true);
 			break;
 		case 'a':
-			snake.ApplyForceToCenter(b2Vec2(-5, 0), true);
+			snake.ApplyForceToCenter(b2Vec2(-10, 0), true);
 			break;
 		case 's':
-			snake.ApplyForceToCenter(b2Vec2(0, -10), true);
+			snake.ApplyForceToCenter(b2Vec2(0, 10), true);
 			break;
 		case 'd':
-			snake.ApplyForceToCenter(b2Vec2(5, 0), true);
+			snake.ApplyForceToCenter(b2Vec2(10, 0), true);
 			break;
 		default:
 			break;
@@ -41,7 +41,7 @@ void ProcessInput() {
 
 }
 
-forcFunc applyForceUp;
+/*forcFunc applyForceUp;
 
 forcFunc applyForceDown;
 
@@ -52,7 +52,7 @@ forcFunc applyForceRight;
 void stopMoving(b2Body& player) {
 	b2Vec2 newVel(0.0f, 0.0f);
 	player.SetLinearVelocity(newVel);
-}
+}*/
 
 void reverseGravity(b2World& world) {
 
@@ -63,5 +63,5 @@ void setupTargets(int cnt) {
 }
 
 bool selectNextTarget() {
-
+	return false;
 }
