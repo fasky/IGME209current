@@ -3,7 +3,7 @@
 #include "globals.h"
 
 //part 1
-void update();
+void update(b2World& world);
 
 void display(b2Vec2 pos1, b2Vec2 pos2);
 
@@ -14,17 +14,17 @@ void moveTarget(float& xPos, float& yPos);
 int main();
 
 //part 2
-void ProcessInput();
+void ProcessInput(b2Body& player);
 
-forcFunc applyForceUp;
+void applyForceUp(b2Body& player);
 
-forcFunc applyForceDown;
+void applyForceDown(b2Body& player);
 
-forcFunc applyForceLeft;
+void applyForceLeft(b2Body& player);
 
-forcFunc applyForceRight;
+void applyForceRight(b2Body& player);
 
-forcFunc stopMoving;
+void stopMoving(b2Body& player);
 
 void reverseGravity(b2World& world);
 

@@ -2,8 +2,15 @@
 #include "stdafx.h"
 
 /////////Part 1
-void update() {
-	//nothing here
+void update(b2World& world) {
+
+	//time steps and iterations for simulating
+	float32 timeStep = 1.0f / 60.0f;
+	int32 velocityIterations = 6;
+	int32 positionIterations = 2;
+
+	//step
+	world.Step(timeStep, velocityIterations, positionIterations);
 }
 
 //display position of target and player
@@ -31,37 +38,84 @@ void applyForces(b2Body& snake, char strInput) {
 	}
 }
 
-//move the target
-void moveTarget(float& xPos, float& yPos) {
-	//nothing here
-}
-
 ///////Part 2
-void ProcessInput() {
+void ProcessInput(b2Body& player) {
+	forcFunc applied = nullptr;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		applied = &applyForceUp;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+		applied = &applyForceLeft;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		applied = &applyForceDown;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		applied = &applyForceRight;
+	}
+	if (applied != nullptr) {
+		applied(player);
+	}
 
+	applied = nullptr;
 }
 
-/*forcFunc applyForceUp;
+void applyForceUp(b2Body& player) {
+	player.ApplyForceToCenter(b2Vec2(0, -9.0f), true);
+}
 
-forcFunc applyForceDown;
+void applyForceDown(b2Body& player) {
+	player.ApplyForceToCenter(b2Vec2(0, 100), true);
+}
 
-forcFunc applyForceLeft;
+void applyForceLeft(b2Body& player) {
+	player.ApplyForceToCenter(b2Vec2(-300, 0), true);
+}
 
-forcFunc applyForceRight;
+void applyForceRight(b2Body& player) {
+	player.ApplyForceToCenter(b2Vec2(300, 0), true);
+}
 
 void stopMoving(b2Body& player) {
 	b2Vec2 newVel(0.0f, 0.0f);
 	player.SetLinearVelocity(newVel);
-}*/
-
-void reverseGravity(b2World& world) {
-
 }
 
-void setupTargets(int cnt) {
+void reverseGravity(b2World& world) {
+	world.SetGravity(-(world.GetGravity()));
+}
 
+//get count from user, set up random targets
+void setupTargets(int cnt) {
+	int count = 0;
+	cout << "How many targets? (1 - 10): ";
+	while (count < 1 || count > cnt) {
+		cin >> count;
+		if (count < 1 || count > cnt) {
+			cout << "\nPlease enter a suitable number (1 - 10): " << endl;
+		}
+	}
+
+	targetLocations = new b2Vec2[count + 1];
+
+	for (int i = 0; i < (count + 1); i++) {
+		srand(time(NULL));
+		b2Vec2 newPos(rand() % 751 + 25, rand() % 200 + 340);
+		targetLocations[i] = newPos;
+
+		if (i == count) {
+			b2Vec2 pos(-1000,-1000);
+			targetLocations[i] = pos;
+		}
+	}
+
+	currentLocation = *targetLocations;
+	
 }
 
 bool selectNextTarget() {
-	return false;
+
+	currentLocation = *++targetLocations;
+
+	return true;
 }
