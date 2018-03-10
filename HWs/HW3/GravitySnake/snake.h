@@ -2,19 +2,11 @@
 #include <Box2D\Box2D.h>
 #include "globals.h"
 
-//part 1
-void update(b2World& world);
-
-void display(b2Vec2 pos1, b2Vec2 pos2);
-
-void applyForces(b2Body& snake, char strInput);
-
-void moveTarget(float& xPos, float& yPos);
+//declare functions
 
 int main();
 
-//part 2
-void ProcessInput(b2Body& player);
+void processInput(b2Body& player);
 
 void applyForceUp(b2Body& player);
 
@@ -28,6 +20,6 @@ void stopMoving(b2Body& player);
 
 void reverseGravity(b2World& world);
 
-void setupTargets(int cnt);
+void setupTargets(int cnt, int windowW, int windowH);
 
 bool selectNextTarget();
